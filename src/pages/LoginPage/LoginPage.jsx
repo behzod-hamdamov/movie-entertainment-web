@@ -27,7 +27,6 @@ export function LoginPage() {
 
   function formSubmit(e) {
     e.preventDefault();
-    console.log(userData);
 
     if (!emailValue) {
       setEmailError({isError: true, errorType: errType.blank})
@@ -44,7 +43,7 @@ export function LoginPage() {
     }
 
     if (userData?.email === emailValue && userData?.password === passwordValue) {
-      localStorage.setItem("userIsLoggedIn", true)
+      localStorage.setItem("isUserLoggedIn", true)
       navigate("/", { replace: true });
     }
   }

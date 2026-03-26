@@ -1,6 +1,6 @@
 import "./SignUpPage.scss";
 
-import { Link, replace, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 
 import logoIcon from "../../assets/icons/logo-icon.svg"
@@ -69,7 +69,8 @@ export function SignupPage() {
 
     if (c >= 3) {
       localStorage.setItem("userData", JSON.stringify({email: emailValue, password: passwordValue}))
-      navigate("/login", {replace: true})
+      localStorage.setItem("isUserLoggedIn", true)
+      navigate("/", {replace: true})
     }
   }
 
@@ -125,7 +126,7 @@ export function SignupPage() {
             </div>
           </div>
           <div className="options">
-            <button onClick={formSubmit}>Login to your account</button>
+            <button onClick={formSubmit}>Create an account</button>
             <div className="link">
               <span>Don’t have an account?</span>
               <Link to="/login">Login</Link>
