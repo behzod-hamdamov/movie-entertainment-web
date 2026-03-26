@@ -1,0 +1,120 @@
+.login-page {
+  padding-top: 78px;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    max-width: 448px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 82px;
+    padding: 0 24px;
+
+    .login-form {
+      width: 100%;
+      min-height: 373px;
+      background-color: rgba(22, 29, 47, 1);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      h3 {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: -0.5px;
+        color: white;
+      }
+
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .input {
+          position: relative;
+
+          &.error input {
+            border-bottom-color: rgba(252, 71, 71, 1);
+          }
+
+          span {
+            color: rgba(252, 71, 71, 1);
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            position: absolute;
+            right: 17px;
+          }
+        }
+
+        input {
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 19px;
+          color: white;
+          caret-color: rgba(252, 71, 71, 1);
+          padding: 0 16px;
+          padding-bottom: 18px;
+          padding-right: 115px;
+          border-bottom: 1px solid rgba(90, 105, 143, 1);
+
+          &:focus {
+            border-bottom-color: white;
+          }
+
+          &::placeholder {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+
+        button {
+          width: 100%;
+          padding: 14px 0;
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 19px;
+          text-align: center;
+          color: white;
+          background-color: rgba(252, 71, 71, 1);
+          border-radius: 6px;
+
+          &:hover {
+            color: rgba(16, 20, 30, 1);
+            background-color: white;
+          }
+
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 19px;
+          color: white;
+
+          a {
+            color: rgba(252, 71, 71, 1);
+          }
+        }
+      }
+    }
+  }
+}
