@@ -17,6 +17,7 @@
     gap: 32px 40px;
 
     .list-item {
+      max-width: 426px;
       min-width: 280px;
       display: flex;
       flex-direction: column;
@@ -25,7 +26,12 @@
       flex-grow: 1;
 
       .bg-img {
+        width: 100%;
+        min-width: 280px;
+        height: 100%;
         cursor: pointer;
+        object-fit: cover;
+        border-radius: 8px;
 
         &:hover + .card-overlay {
           opacity: 1;

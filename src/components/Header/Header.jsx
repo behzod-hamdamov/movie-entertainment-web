@@ -5,7 +5,23 @@ import { Link, NavLink } from "react-router";
 import logoIcon from "../../assets/icons/logo-icon.svg";
 import userImage from "../../assets/images/user-image.png"
 
-export function Header({setPage}) {
+import { filterRec, filterTrend, filterMovies, filterTvS, filterBooking } from "../../utils/filterArr";
+
+import { moviesList } from "../../utils/mock/movies-list";
+
+export function Header({setPage, setFilteredMovies}) {
+
+  function pageChange(title) {
+    const pageLists = {
+      home: moviesList,
+      movies: filterMovies(moviesList),
+      tvseries: filterTvS(moviesList),
+      bookmarks: filterBooking(moviesList),
+    }
+    setPage(title)
+    setFilteredMovies(pageLists[title])
+  }
+
   return (
     <header>
       <div className="container">
@@ -14,7 +30,7 @@ export function Header({setPage}) {
             <img src={logoIcon} alt="logo" />
           </Link>
           <ul className="pages">
-            <li className="page" onClick={() => {setPage("home")}}>
+            <li className="page" onClick={() => {pageChange("home")}}>
               <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -32,7 +48,7 @@ export function Header({setPage}) {
                 </svg>
               </NavLink>
             </li>
-            <li className="page" onClick={() => {setPage("movies")}}>
+            <li className="page" onClick={() => {pageChange("movies")}}>
               <NavLink to="/movies" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -50,7 +66,7 @@ export function Header({setPage}) {
                 </svg>
               </NavLink>
             </li>
-            <li className="page" onClick={() => {setPage("tvseries")}}>
+            <li className="page" onClick={() => {pageChange("tvseries")}}>
               <NavLink to="/tvseries" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -68,7 +84,7 @@ export function Header({setPage}) {
                 </svg>
               </NavLink>
             </li>
-            <li className="page" onClick={() => {setPage("bookmarks")}}>
+            <li className="page" onClick={() => {pageChange("bookmarks")}}>
               <NavLink to="/bookmarks" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="17"
