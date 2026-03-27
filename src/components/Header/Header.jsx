@@ -5,21 +5,11 @@ import { Link, NavLink } from "react-router";
 import logoIcon from "../../assets/icons/logo-icon.svg";
 import userImage from "../../assets/images/user-image.png"
 
-import { filterRec, filterTrend, filterMovies, filterTvS, filterBooking } from "../../utils/filterArr";
-
-import { moviesList } from "../../utils/mock/movies-list";
-
-export function Header({setPage, setFilteredMovies}) {
+export function Header({setPage, setSearchedMovies}) {
 
   function pageChange(title) {
-    const pageLists = {
-      home: moviesList,
-      movies: filterMovies(moviesList),
-      tvseries: filterTvS(moviesList),
-      bookmarks: filterBooking(moviesList),
-    }
     setPage(title)
-    setFilteredMovies(pageLists[title])
+    setSearchedMovies(null)
   }
 
   return (

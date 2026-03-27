@@ -1,8 +1,8 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
+
+import { useEffect, useState } from "react";
 
 import { LoginPage, SignupPage, HomePage, MoviesPage, TvseriesPage, BookmarksPage } from "./pages/index";
-
-import { useState } from "react";
 
 import { ProtectedRoute } from "./components/index";
 
@@ -13,7 +13,22 @@ import { moviesList } from "./utils/mock/movies-list";
 function App() {
   const [searchedMovies, setSearchedMovies] = useState(null);
   const [movies, setMovies] = useState(moviesList);
-  const [filteredMovies, setFilteredMovies] = useState(moviesList);
+  const [searchValue, setSearchValue] = useState("")
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isReload =
+      performance.getEntriesByType("navigation")[0].type === "reload";
+    const isUserLoggedIn = localStorage.getItem("isUserLoggedIn")
+
+    if (isReload) {
+      if (!isUserLoggedIn) {
+        navigate("/login", {replace: true})
+      } else {
+        navigate("/", {replace: true});
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -24,8 +39,8 @@ function App() {
           element={
             <MainLayout
               setSearchedMovies={setSearchedMovies}
-              movies={filteredMovies}
-              setFilteredMovies={setFilteredMovies}
+              movies={movies}
+              setSearchValue={setSearchValue}
             />
           }
         >
@@ -37,6 +52,7 @@ function App() {
                   searchedMovies={searchedMovies}
                   movies={movies}
                   setMovies={setMovies}
+                  searchValue={searchValue}
                 />
               </ProtectedRoute>
             }
@@ -49,6 +65,7 @@ function App() {
                   searchedMovies={searchedMovies}
                   movies={movies}
                   setMovies={setMovies}
+                  searchValue={searchValue}
                 />
               </ProtectedRoute>
             }
@@ -61,6 +78,7 @@ function App() {
                   searchedMovies={searchedMovies}
                   movies={movies}
                   setMovies={setMovies}
+                  searchValue={searchValue}
                 />
               </ProtectedRoute>
             }
@@ -73,6 +91,7 @@ function App() {
                   searchedMovies={searchedMovies}
                   movies={movies}
                   setMovies={setMovies}
+                  searchValue={searchValue}
                 />
               </ProtectedRoute>
             }

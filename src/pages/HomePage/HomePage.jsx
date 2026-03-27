@@ -4,7 +4,7 @@ import { filterTrend, filterRec } from "../../utils/filterArr";
 
 import { ListWrapper, TrendingList } from "../../components/index";
 
-export function HomePage({ searchedMovies, movies, setMovies }) {
+export function HomePage({ searchedMovies, movies, setMovies, searchValue }) {
   const trendingMovies = filterTrend(movies);
   const recommendedMovies = filterRec(movies);
 
@@ -16,7 +16,11 @@ export function HomePage({ searchedMovies, movies, setMovies }) {
           <ListWrapper moviesList={recommendedMovies} setMovies={setMovies} listTitle="Recommended for you" />
         </>
       ) : (
-        ""
+        <ListWrapper
+          moviesList={searchedMovies}
+          setMovies={setMovies}
+          listTitle={`Found ${searchedMovies.length} results for ‘${searchValue}’`}
+        />
       )}
     </div>
   );

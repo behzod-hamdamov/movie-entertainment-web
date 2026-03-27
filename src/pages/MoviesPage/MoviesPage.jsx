@@ -2,7 +2,7 @@ import { ListWrapper } from "../../components/index";
 
 import { filterMovies } from "../../utils/filterArr";
 
-export function MoviesPage({ searchedMovies, movies, setMovies }) {
+export function MoviesPage({ searchedMovies, movies, setMovies, searchValue }) {
   return (
     <div className="movies-page">
       {!searchedMovies ? (
@@ -14,7 +14,11 @@ export function MoviesPage({ searchedMovies, movies, setMovies }) {
           />
         </>
       ) : (
-        ""
+        <ListWrapper
+          moviesList={searchedMovies}
+          setMovies={setMovies}
+          listTitle={`Found ${searchedMovies.length} results for ‘${searchValue}’`}
+        />
       )}
     </div>
   );
