@@ -1,0 +1,6 @@
+export const filterRec = arr => arr.filter(movie => !movie.isTrending)
+export const filterTrend = arr => arr.filter(movie => movie.isTrending)
+export const filterTvS = arr => arr.filter(movie => movie.movieType === "TV Series")
+export const filterMovies = arr => arr.filter(movie => movie.movieType === "Movie")
+export const filterBooking = arr => arr.filter(movie => movie.isBooked)
+export const filterByName = (arr, str) => arr.filter(movie => movie.movieName.toLowerCase().includes(str) )

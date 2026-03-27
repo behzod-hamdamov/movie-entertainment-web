@@ -1,14 +1,21 @@
-import "./MainLayout.scss"
+import "./MainLayout.scss";
 
-import { Outlet } from "react-router"
+import { Outlet } from "react-router";
 
-import { Header } from "../../components"
+import { useState } from "react";
 
-export function MainLayout() {
+import { Header, SearchBar } from "../../components";
+
+export function MainLayout({setSearchedMovies, movies}) {
+  const [page, setPage] = useState("home")
+
   return (
     <div className="wrapper">
-      <Header />
-      <Outlet />
+      <Header setPage={setPage} />
+      <main className="layout-main">
+        <SearchBar page={page} setSearchedMovies={setSearchedMovies} movies={movies} />
+        <Outlet />
+      </main>
     </div>
-  )
+  );
 }

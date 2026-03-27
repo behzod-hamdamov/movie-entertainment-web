@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router";
 import logoIcon from "../../assets/icons/logo-icon.svg";
 import userImage from "../../assets/images/user-image.png"
 
-export function Header() {
+export function Header({setPage}) {
   return (
     <header>
       <div className="container">
@@ -14,7 +14,7 @@ export function Header() {
             <img src={logoIcon} alt="logo" />
           </Link>
           <ul className="pages">
-            <li className="page">
+            <li className="page" onClick={() => {setPage("home")}}>
               <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -32,7 +32,7 @@ export function Header() {
                 </svg>
               </NavLink>
             </li>
-            <li className="page">
+            <li className="page" onClick={() => {setPage("movies")}}>
               <NavLink to="/movies" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -50,7 +50,7 @@ export function Header() {
                 </svg>
               </NavLink>
             </li>
-            <li className="page">
+            <li className="page" onClick={() => {setPage("tvseries")}}>
               <NavLink to="/tvseries" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="20"
@@ -68,7 +68,7 @@ export function Header() {
                 </svg>
               </NavLink>
             </li>
-            <li className="page">
+            <li className="page" onClick={() => {setPage("bookmarks")}}>
               <NavLink to="/bookmarks" className={({ isActive }) => (isActive ? "active" : "")}>
                 <svg
                   width="17"

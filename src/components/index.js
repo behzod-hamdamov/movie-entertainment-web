@@ -1,2 +1,3 @@
 export * from "./ProtectedRoute/ProtectedRoute"
 export * from "./Header/Header"
+export * from "./SearchBar/SearchBar"

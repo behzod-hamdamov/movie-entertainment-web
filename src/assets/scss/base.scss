@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 button,
@@ -41,4 +41,15 @@ body {
   font-family: "Outfit";
   background-color: rgba(16, 20, 30, 1);
   color: rgba(255, 255, 255, 1);
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
