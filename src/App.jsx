@@ -24,13 +24,10 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <HomePage searchedMovies={searchedMovies} movies={movies} />
+                <HomePage searchedMovies={searchedMovies} movies={movies} setMovies={setMovies} />
               </ProtectedRoute>
             }
           />
-          <Route path="/tvseries" element={
-            <HomePage />
-          } />
         </Route>
       </Routes>
     </>

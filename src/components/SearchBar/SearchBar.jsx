@@ -13,11 +13,14 @@ export function SearchBar({ page, setSearchedMovies, movies }) {
   };
 
   const inputEvent = (e) => {
+    if (!e.target.value.trim().length) {
+      setSearchedMovies(null)
+      return
+    }
     const result = filterByName(
       movies,
       e.target.value.trimStart().toLowerCase()
     );
-    console.log(result);
     setSearchedMovies(result);
   };
 
