@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router";
 
-import { LoginPage, SignupPage, HomePage, MoviesPage } from "./pages/index";
+import { LoginPage, SignupPage, HomePage, MoviesPage, TvseriesPage } from "./pages/index";
 
 import { useState } from "react";
 
@@ -46,6 +46,18 @@ function App() {
             element={
               <ProtectedRoute>
                 <MoviesPage
+                  searchedMovies={searchedMovies}
+                  movies={movies}
+                  setMovies={setMovies}
+                />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tvseries"
+            element={
+              <ProtectedRoute>
+                <TvseriesPage
                   searchedMovies={searchedMovies}
                   movies={movies}
                   setMovies={setMovies}

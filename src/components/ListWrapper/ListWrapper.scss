@@ -15,10 +15,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px 40px;
+    justify-content: center;
 
     .list-item {
-      max-width: 426px;
-      min-width: 280px;
+      max-width: 280px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -29,8 +29,10 @@
         width: 100%;
         min-width: 280px;
         height: 100%;
+        max-height: 174px;
         cursor: pointer;
         object-fit: cover;
+        object-position: top;
         border-radius: 8px;
 
         &:hover + .card-overlay {
