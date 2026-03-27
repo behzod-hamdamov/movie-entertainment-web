@@ -1,0 +1,39 @@
+header {
+  min-height: 100vh;
+  
+  .container {
+    max-width: 96px;
+    height: 100%;
+    padding: 32px 0;
+
+    .header-body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 28px;
+      gap: 75px;
+      background-color: rgba(22, 29, 47, 1);
+      border-radius: 20px;
+
+      ul.pages {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        li {
+
+          &:hover a svg path {
+            fill: rgba(252, 71, 71, 1);
+          }
+
+          a.active svg path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}
