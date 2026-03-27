@@ -23,6 +23,7 @@ export function LoginPage() {
   const errType = {
     blank: "Can't be empty",
     invalid: "Invalid email",
+    authentification: "User not found",
   };
 
   function formSubmit(e) {
@@ -45,6 +46,9 @@ export function LoginPage() {
     if (userData?.email === emailValue && userData?.password === passwordValue) {
       localStorage.setItem("isUserLoggedIn", true)
       navigate("/", { replace: true });
+    } else {
+      setEmailError({isError: true, errorType: errType.authentification})
+      setPasswordError({isError: true, errorType: errType.authentification})
     }
   }
 
